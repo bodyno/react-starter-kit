@@ -2,6 +2,8 @@
 
 React开发中最好用的手脚架
 
+觉得不错的话 麻烦点一下Star 这是对作者最大的支持
+
 所有相关库已准备好
 
 随时等待调用
@@ -74,6 +76,6 @@ $ npm start                     # Compile and launch
 
 如果没有社区的话，这个项目是不可能诞生的， 感谢所有为这个项目做出贡献的人
 
-This program is inspired by (davezuko)[https://github.com/davezuko/react-redux-starter-kit]
+This program is inspired by [davezuko](https://github.com/davezuko/react-redux-starter-kit)
 
 Thank you all the time

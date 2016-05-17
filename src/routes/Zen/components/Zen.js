@@ -6,7 +6,7 @@ const child=(item)=>(
 )
 
 export default (props)=>(
-  <div className={classes.ok}>
+  <div className={classes.zen}>
     <button class='btn btn-default' onClick={props.fetchZen}>{props.zen.fetching?'Fetching...':'Fetch'}</button>&nbsp;&nbsp;
     <button class='btn btn-default' onClick={props.clearZen}>Clear</button>
     <div>

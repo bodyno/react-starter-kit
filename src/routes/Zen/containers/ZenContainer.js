@@ -1,7 +1,7 @@
 import { connect } from 'react-redux'
-import { fetchZen,clearZen } from './modules'
+import { fetchZen,clearZen } from './../modules/zen'
 
-import Zen from './components/Zen.js'
+import Zen from './../components/Zen'
 
 const mapActionCreators = {
   fetchZen,

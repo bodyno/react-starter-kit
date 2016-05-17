@@ -4,10 +4,10 @@ export default (store) => ({
   path: 'zen',
   getComponent (nextState, cb) {
     require.ensure([], (require) => {
-      const Counter = require('./container').default
-      const reducer = require('./modules').default
+      const Zen = require('./containers/ZenContainer').default
+      const reducer = require('./modules/zen').default
       injectReducer(store, { key: 'zen', reducer })
-      cb(null, Counter)
+      cb(null, Zen)
 
     }, 'zen')
   }

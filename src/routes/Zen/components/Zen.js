@@ -1,4 +1,4 @@
-import React from 'React'
+import React from 'react'
 import classes from './Zen.scss'
 
 const child=(item)=>(
@@ -6,7 +6,6 @@ const child=(item)=>(
 )
 
 export default (props)=>(
-
   <div className={classes.ok}>
     <button class='btn btn-default' onClick={props.fetchZen}>{props.zen.fetching?'Fetching...':'Fetch'}</button>&nbsp;&nbsp;
     <button class='btn btn-default' onClick={props.clearZen}>Clear</button>

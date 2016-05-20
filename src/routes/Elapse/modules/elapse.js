@@ -1,26 +1,15 @@
 // ------------------------------------
 // Constants
 // ------------------------------------
-const COUNTER_INCREMENT = 'COUNTER_INCREMENT'
+const PLUS = 'PLUS'
 
 // ------------------------------------
 // Actions
 // ------------------------------------
-export function increment (value = 1) {
-  return {
-    type: COUNTER_INCREMENT,
-    payload: value
-  }
-}
 
-export const doubleAsync = () => {
-  return (dispatch, getState) => {
-    return new Promise((resolve) => {
-      setTimeout(() => {
-        dispatch(increment(getState().counter))
-        resolve()
-      }, 200)
-    })
+export function plus(){
+  return {
+    type:PLUS
   }
 }
 
@@ -28,15 +17,15 @@ export const doubleAsync = () => {
 // Action Handlers
 // ------------------------------------
 const ACTION_HANDLERS = {
-  [COUNTER_INCREMENT]: (state, action) => {
-    return state + action.payload
+  [PLUS]: (state) => {
+    return state+1
   }
 }
 
 // ------------------------------------
 // Reducer
 // ------------------------------------
-const initialState = 0
+const initialState = 0;
 export default function (state = initialState, action) {
   const handler = ACTION_HANDLERS[action.type]
 

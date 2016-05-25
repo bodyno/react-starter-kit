@@ -1,4 +1,7 @@
 .activeRoute {
-  font-weight: bold;
-  text-decoration: underline;
+  color:#cc2e5b;
+
+  &:hover{
+    color:lighten(#cc2e5b,30%);
+  }
 }

@@ -29,8 +29,10 @@
 
   a{
     color:#07c;
+    text-decoration: none;
     &:hover{
       color:#3af;
+      text-decoration: underline;
     }
   }
 

@@ -1,6 +1,6 @@
 import React,{Component} from 'react'
 import classes from './Zen.scss'
-import Loader from 'halogen/RingLoader'
+import Loader from 'halogen/ClipLoader'
 
 const child=(item)=>(
   <h1 key={item.id}>{item.text}</h1>
@@ -8,7 +8,7 @@ const child=(item)=>(
 
 export default class Zen extends Component{
 
-  renderBody() {
+  renderLoading() {
     return (this.props.zen.fetching)
       ? <div className={classes.loader}><Loader color="#26A65B" /></div>
       : ''
@@ -23,7 +23,7 @@ export default class Zen extends Component{
           <button class='btn btn-default' onClick={props.fetchZen}>{props.zen.fetching?'Fetching...':'Fetch'}</button>&nbsp;&nbsp;
           <button class='btn btn-default' onClick={props.clearZen}>Clear</button>
         </div>
-        {this.renderBody()}
+        {this.renderLoading()}
         <div>
           {props.zen.text.map(child)}
         </div>

@@ -15,9 +15,30 @@
     height: 100%;
   }
 
+  body{
+    font-family: "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Hiragino Kaku Gothic Pro", Meiryo, "Malgun Gothic", sans-serif;
+    color: #333;
+    font-size: 14px;
+  }
+
   *,
   *:before,
   *:after {
     box-sizing: inherit;
+  }
+
+  a{
+    color:#07c;
+    &:hover{
+      color:#3af;
+    }
+  }
+
+  .container{
+    width:1000px;
+    margin:0 auto;
+  }
+  .text-center{
+    text-align: center;
   }
 }

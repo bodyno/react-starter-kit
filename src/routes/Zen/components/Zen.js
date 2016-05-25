@@ -18,7 +18,7 @@ export default class Zen extends Component{
     const props=this.props;
 
     return (
-      <div className={classes.zen}>
+      <div>
         <div>
           <button class='btn btn-default' onClick={props.fetchZen}>{props.zen.fetching?'Fetching...':'Fetch'}</button>&nbsp;&nbsp;
           <button class='btn btn-default' onClick={props.clearZen}>Clear</button>

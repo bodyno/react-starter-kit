@@ -29,7 +29,7 @@ React开发中最好用的手脚架
 
 ```bash
 $ git clone https://github.com/bodyno/react-starter-kit.git
-$ cd react-redux-starter-kit
+$ cd react-starter-kit
 $ npm install                   # Install project dependencies
 $ npm start                     # Compile and launch
 ```

@@ -20,6 +20,10 @@ export const Header = () => (
     <Link to='/elapse' activeClassName={classes.activeRoute}>
       Elapse
     </Link>
+    {' · '}
+    <Link to='/form' activeClassName={classes.activeRoute}>
+      Form
+    </Link>
   </div>
 )
 

@@ -5,6 +5,7 @@ import CounterRoute from './Counter'
 import ZenRoute from './Zen'
 import ElapseRoute from './Elapse'
 import FormRoute from './Form'
+import RouteRoute from './Route'
 
 /*  Note: Instead of using JSX, we recommend using react-router
     PlainRoute objects to build route definitions.   */
@@ -18,6 +19,7 @@ export const createRoutes = (store) => ({
     ZenRoute(store),
     ElapseRoute(store),
     FormRoute(store),
+    RouteRoute(store),
   ]
 })
 

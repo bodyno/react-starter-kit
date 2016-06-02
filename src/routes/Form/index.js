@@ -8,7 +8,6 @@ export default (store) => ({
       const reducer = require('./modules/form').default
       injectReducer(store, { key: 'formPage', reducer })
       cb(null, Zen)
-
     }, 'form')
   }
 })

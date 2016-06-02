@@ -9,43 +9,42 @@ const CLEAR_ZEN = 'CLEAR_ZEN'
 // Actions
 // ------------------------------------
 
-function requestZen (){
+function requestZen () {
   return {
     type: REQUEST_ZEN
   }
 }
 
-let avaliableId=0;
-function receiveZen(value){
+let avaliableId = 0
+function receiveZen (value) {
   return {
-    type :RECEIVE_ZEN,
-    payload:{
-      text:value,
-      id:avaliableId++
+    type: RECEIVE_ZEN,
+    payload: {
+      text: value,
+      id: avaliableId++
     }
   }
 }
 
-export function clearZen(){
+export function clearZen () {
   return {
-    type:CLEAR_ZEN
+    type: CLEAR_ZEN
   }
 }
 
 export function fetchZen () {
-  return (dispatch,getState)=>{
-
-    if(getState().zen.fetching) return
+  return (dispatch, getState) => {
+    if (getState().zen.fetching) return
 
     dispatch(requestZen())
     return new Promise((resolve) => {
       setTimeout(() => {
         resolve()
       }, 1000)
-    }).then(()=>{
+    }).then(() => {
       fetch('https://api.github.com/zen')
-        .then(data=>data.text())
-        .then(text=>dispatch(receiveZen(text)))
+        .then(data => data.text())
+        .then(text => dispatch(receiveZen(text)))
     })
   }
 }
@@ -55,13 +54,13 @@ export function fetchZen () {
 // ------------------------------------
 const ACTION_HANDLERS = {
   [REQUEST_ZEN]: (state) => {
-    return ({...state,fetching:true})
+    return ({...state, fetching: true})
   },
-  [RECEIVE_ZEN]:(state,action)=>{
-    return ({...state,fetching:false,text:state.text.concat(action.payload)})
+  [RECEIVE_ZEN]: (state, action) => {
+    return ({...state, fetching: false, text: state.text.concat(action.payload)})
   },
-  [CLEAR_ZEN]:(state)=>{
-    return ({...state,text:[]})
+  [CLEAR_ZEN]: (state) => {
+    return ({...state, text: []})
   }
 }
 
@@ -69,8 +68,8 @@ const ACTION_HANDLERS = {
 // Reducer
 // ------------------------------------
 const initialState = {
-  fetching:false,
-  text:[]
+  fetching: false,
+  text: []
 }
 export default function (state = initialState, action) {
   const handler = ACTION_HANDLERS[action.type]

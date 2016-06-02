@@ -19,7 +19,7 @@ export const createRoutes = (store) => ({
     ZenRoute(store),
     ElapseRoute(store),
     FormRoute(store),
-    RouteRoute(store),
+    RouteRoute(store)
   ]
 })
 

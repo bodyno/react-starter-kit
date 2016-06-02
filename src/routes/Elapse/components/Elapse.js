@@ -1,17 +1,17 @@
-import React,{Component} from 'react'
+import React, {Component} from 'react'
 
-export default class Elapse extends Component{
+export default class Elapse extends Component {
 
-  componentDidMount(){
-    this.interval=setInterval(this.props.plus,1000)
+  componentDidMount () {
+    this.interval = setInterval(this.props.plus, 1000)
   }
 
-  componentWillUnmount(){
+  componentWillUnmount () {
     clearInterval(this.interval)
   }
 
-  render(){
-    const {elapse}=this.props;
+  render () {
+    const {elapse} = this.props
     return (
       <h1>
         Seconds Elapsed: {elapse}
@@ -20,7 +20,7 @@ export default class Elapse extends Component{
   }
 }
 
-Elapse.propTypes={
-  elapse:React.PropTypes.number.isRequired,
-  plus:React.PropTypes.func.isRequired
+Elapse.propTypes = {
+  elapse: React.PropTypes.number.isRequired,
+  plus: React.PropTypes.func.isRequired
 }

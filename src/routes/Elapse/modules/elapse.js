@@ -7,9 +7,9 @@ const PLUS = 'PLUS'
 // Actions
 // ------------------------------------
 
-export function plus(){
+export function plus () {
   return {
-    type:PLUS
+    type: PLUS
   }
 }
 
@@ -18,14 +18,14 @@ export function plus(){
 // ------------------------------------
 const ACTION_HANDLERS = {
   [PLUS]: (state) => {
-    return state+1
+    return state + 1
   }
 }
 
 // ------------------------------------
 // Reducer
 // ------------------------------------
-const initialState = 0;
+const initialState = 0
 export default function (state = initialState, action) {
   const handler = ACTION_HANDLERS[action.type]
 

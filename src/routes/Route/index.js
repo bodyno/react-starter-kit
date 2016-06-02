@@ -8,7 +8,6 @@ export default (store) => ({
       const reducer = require('./modules/route').default
       injectReducer(store, { key: 'route', reducer })
       cb(null, Route)
-
     }, 'route')
   }
 })

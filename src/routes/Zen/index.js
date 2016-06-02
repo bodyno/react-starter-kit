@@ -8,7 +8,6 @@ export default (store) => ({
       const reducer = require('./modules/zen').default
       injectReducer(store, { key: 'zen', reducer })
       cb(null, Zen)
-
     }, 'zen')
   }
 })

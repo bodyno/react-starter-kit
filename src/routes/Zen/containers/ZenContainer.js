@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import { fetchZen,clearZen } from './../modules/zen'
+import { fetchZen, clearZen } from './../modules/zen'
 
 import Zen from '../components/Zen'
 

@@ -6,7 +6,7 @@ const SUBMIT_FORM = 'SUBMIT_FORM'
 // ------------------------------------
 // Actions
 // ------------------------------------
-export function submit (){
+export function submit () {
   return {
     type: SUBMIT_FORM
   }

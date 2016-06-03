@@ -6,22 +6,37 @@ import ZenRoute from './Zen'
 import ElapseRoute from './Elapse'
 import FormRoute from './Form'
 import RouteRoute from './Route'
+import PageNotFound from './PageNotFound'
 
 /*  Note: Instead of using JSX, we recommend using react-router
     PlainRoute objects to build route definitions.   */
 
-export const createRoutes = (store) => ({
-  path: '/',
-  component: CoreLayout,
-  indexRoute: Home,
-  childRoutes: [
-    CounterRoute(store),
-    ZenRoute(store),
-    ElapseRoute(store),
-    FormRoute(store),
-    RouteRoute(store)
-  ]
-})
+export const createRoutes = (store) => ([
+  {
+    path: '/',
+    component: CoreLayout,
+    indexRoute: Home,
+    childRoutes: [
+      CounterRoute(store),
+      ZenRoute(store),
+      ElapseRoute(store),
+      FormRoute(store),
+      RouteRoute(store)
+    ]
+  },
+  {
+    path: '/404',
+    indexRoute: PageNotFound
+  },
+  {
+    path: '*',
+    indexRoute: {
+      onEnter(nextState,replace){
+        replace('/404')
+      }
+    }
+  }
+])
 
 /*  Note: childRoutes can be chunked or otherwise loaded programmatically
     using getChildRoutes with the following signature:

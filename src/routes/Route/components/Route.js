@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import { Link, withRouter } from 'react-router';
+import { Link } from 'react-router';
 
 class Route extends Component {
 
@@ -12,10 +12,11 @@ class Route extends Component {
   }*/
 
   redirect () {
-    this.props.router.replace({
-      pathname: '/form',
-      state: { nextPathname: '/elapse' }
-    })
+    this.props.router.push('/form')
+  }
+
+  componentWillReceiveProps (nextProps) {
+    console.log(nextProps.params.id)
   }
 
   render () {
@@ -24,7 +25,7 @@ class Route extends Component {
     return (
       <div>
         <h1>
-          Path: <Link to="/form">{location.pathname}</Link>
+          Path: <Link to="/route/99">{location.pathname}</Link>
         </h1>
         <div>
           <button onClick={this.redirect.bind(this)}>Go</button>
@@ -33,4 +34,4 @@ class Route extends Component {
     )
   }
 }
-export default withRouter(Route)
+export default Route

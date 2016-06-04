@@ -51,54 +51,76 @@ $ npm start                     # Compile and launch
 |------------------|-----------|
 |`start`|服务启动在3000端口，代码热替换开启。|
 |`compile`|编译程序到dist目录下（默认目录~/dist）。|
-|`dev`|与 `npm start`相同, 但是启动nodemon守护进程。|
-|`dev:no-debug`|与 `npm run dev` 但是禁用devtool（开发工具）。|
+|`dev`|与`npm start`相同, 但是启动nodemon守护进程。|
+|`dev:no-debug`|与`npm run dev` 但是禁用devtool（开发工具）。|
 |`test`|开启Karam测试并生成覆盖率报告。|
 |`test:dev`|开启Karma测试并监听改变随时重新测试，但是生成覆盖率报告。|
 |`deploy`|启动代码检查，测试，如果成功，编译到dist目录下。|
-|`deploy:dev`|与 `deploy`相同，但是`NODE_ENV` 值为 "development"。|
-|`deploy:prod`|与 `deploy` 相同，但是`NODE_ENV` 值为 "production"。|
+|`deploy:dev`|与`deploy`相同，但是`NODE_ENV`值为"development"。|
+|`deploy:prod`|与`deploy`相同，但是`NODE_ENV`值为"production"。|
 |`lint`|检查所有.js文件是否规范。|
 |`lint:fix`|检查所有.js文件是否规范并修复它们。 [更多](http://eslint.org/docs/user-guide/command-line-interface.html#fix).|
 
 ## 程序目录
 
+这个项目的结构使用的是**fractal**，方法的分组主要是依照特性而不是文件类型。注意，这个目录结构只是一个指引，并不一定要按这个来。这种结构谐在让程序更容易扩展，想了解更多请[点击这里](https://github.com/justingreenberg)。
+
+
 ```
 .
-├── bin                      # Build/Start scripts
-├── blueprints               # Blueprint files for redux-cli
-├── build                    # All build-related configuration
-│   └── webpack              # Environment-specific configuration files for webpack
-├── config                   # Project configuration settings
-├── server                   # Koa application (uses webpack middleware)
-│   └── main.js              # Server application entry point
-├── src                      # Application source code
-│   ├── main.js              # Application bootstrap and rendering
-│   ├── components           # Reusable Presentational Components
-│   ├── containers           # Reusable Container Components
-│   ├── layouts              # Components that dictate major page structure
-│   ├── static               # Static assets (not imported anywhere in source code)
-│   ├── styles               # Application-wide styles (generally settings)
-│   ├── store                # Redux-specific pieces
-│   │   ├── createStore.js   # Create and instrument redux store
-│   │   └── reducers.js      # Reducer registry and injection
-│   └── routes               # Main route definitions and async split points
-│       ├── index.js         # Bootstrap main application routes with store
-│       ├── Root.js          # Wrapper component for context-aware providers
-│       └── Home             # Fractal route
-│           ├── index.js     # Route definitions and async split points
-│           ├── assets       # Assets required to render components
-│           ├── components   # Presentational React Components
-│           ├── container    # Connect components to actions and store
-│           ├── modules      # Collections of reducers/constants/actions
-│           └── routes **    # Fractal sub-routes (** optional)
-└── tests                    # Unit tests
+├── bin                      # 启动脚本
+├── blueprints               # redux-cli的蓝图
+├── build                    # 所有打包配置项
+│   └── webpack              # webpack的指定环境配置文件
+├── config                   # 项目配置文件
+├── server                   # Koa 程序 (使用 webpack 中间件)
+│   └── main.js              # 服务端程序入口文件
+├── src                      # 程序源文件
+│   ├── main.js              # 程序启动和渲染
+│   ├── components           # 可复用的直观组件(Presentational Components)
+│   ├── containers           # 可复用的容器组件
+│   ├── layouts              # 主页结构
+│   ├── static               # 静态文件(不要到处imported源文件)
+│   ├── styles               # 程序样式
+│   ├── store                # Redux指定块
+│   │   ├── createStore.js   # 创建和使用redux store
+│   │   └── reducers.js      # Reducer注册和注入
+│   └── routes               # 主路由和异步分割点
+│       ├── index.js         # 用store启动主程序路由
+│       ├── Root.js          # 为上下文providers包住组件
+│       └── Home             # 不规则路由
+│           ├── index.js     # 路由定义和代码异步分割
+│           ├── assets       # 组件引入的静态资源
+│           ├── components   # 直观React组件
+│           ├── container    # 连接actions和store
+│           ├── modules      # reducers/constants/actions的集合
+│           └── routes **    # 不规则子路由(** 可选择的)
+└── tests                    # 单元测试
 ```
 
-## Thank You
+## 样式
 
-如果没有社区的话，这个项目是不可能诞生的， 感谢所有为这个项目做出贡献的人
+所有的css和sass都支持[CSS Modules](https://github.com/css-modules/css-modules)。只在被引入，都会经过[PostCSS](https://github.com/postcss/postcss)压缩，加前缀。在生产环境下会提取到一个css文件下。
+
+## 服务端
+
+这个项目的服务端使用Koa。需要注意的是，只有一个目的那就是提供了`webpack-dev-middleware` 和 `webpack-hot-middleware`（代码热替换）。使用自定义的Koa程序替换[webpack-dev-server](https://github.com/webpack/webpack-dev-server)，让它更容易实现universal 渲染和为了不使这个包过于庞大。
+
+## 打包优化
+
+Babel被配置[babel-plugin-transform-runtime](https://www.npmjs.com/package/babel-plugin-transform-runtime)可以让代码更优化。另外，在生产环境，我们使用[react-optimize](https://github.com/thejameskyle/babel-react-optimize)来优化React代码。
+
+在生产环境下，webpack会导出一个css文件并压缩Javascript，并把js模块优化到最好的性能。
+
+## 谢谢大家
+
+如果没有大家的贡献，这个项目是不可能诞生的， 感谢所有为这个项目做出贡献的人
 
 This program is inspired by [davezuko](https://github.com/davezuko/react-redux-starter-kit)
+
+* [Justin Greenberg](https://github.com/justingreenberg) - For all of your PR's, getting us to Babel 6, and constant work improving our patterns.
+* [Roman Pearah](https://github.com/neverfox) - For your bug reports, help in triaging issues, and PR contributions.
+* [Spencer Dixin](https://github.com/SpencerCDixon) - For your creation of [redux-cli](https://github.com/SpencerCDixon/redux-cli).
+* [Jonas Matser](https://github.com/mtsr) - For your help in triaging issues and unending support in our Gitter channel.
 
 Thank you all the time

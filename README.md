@@ -59,11 +59,11 @@ $ npm start                     # Compile and launch
 |`deploy:dev`|与`deploy`相同，但是`NODE_ENV`值为"development"。|
 |`deploy:prod`|与`deploy`相同，但是`NODE_ENV`值为"production"。|
 |`lint`|检查所有.js文件是否规范。|
-|`lint:fix`|检查所有.js文件是否规范并修复它们。 [更多](http://eslint.org/docs/user-guide/command-line-interface.html#fix).|
+|`lint:fix`|检查所有.js文件是否规范并修复它们。 [更多](http://eslint.org/docs/user-guide/command-line-interface.html#fix)|
 
 ## 程序目录
 
-这个项目的结构使用的是**fractal**，方法的分组主要是依照特性而不是文件类型。注意，这个目录结构只是一个指引，并不一定要按这个来。这种结构谐在让程序更容易扩展，想了解更多请[点击这里](https://github.com/justingreenberg)。
+这个项目的结构使用的是 **fractal**，方法的分组主要是依照特性而不是文件类型。注意，这个目录结构只是一个指引，并不一定要按这个来。这种结构谐在让程序更容易扩展，想了解更多请[点击这里](https://github.com/justingreenberg)。
 
 
 ```
@@ -116,11 +116,11 @@ Babel被配置[babel-plugin-transform-runtime](https://www.npmjs.com/package/bab
 
 如果没有大家的贡献，这个项目是不可能诞生的， 感谢所有为这个项目做出贡献的人
 
-This program is inspired by [davezuko](https://github.com/davezuko/react-redux-starter-kit)
+This program is inspired by [davezuko](https://github.com/davezuko)
 
 * [Justin Greenberg](https://github.com/justingreenberg) - For all of your PR's, getting us to Babel 6, and constant work improving our patterns.
 * [Roman Pearah](https://github.com/neverfox) - For your bug reports, help in triaging issues, and PR contributions.
 * [Spencer Dixin](https://github.com/SpencerCDixon) - For your creation of [redux-cli](https://github.com/SpencerCDixon/redux-cli).
 * [Jonas Matser](https://github.com/mtsr) - For your help in triaging issues and unending support in our Gitter channel.
 
-Thank you all the time
+Thanks you guys all the time

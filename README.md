@@ -1,18 +1,16 @@
 # React Starter Kit
 
-React开发中最好用的手脚架
+React开发中最好用的手脚架。
 
-这个启动包的设计是为了让你使用一整套最新最酷的前端技术，所有都是可配置，富特性，基于webpack已经提供代码热加载，css模块with sass，单元测试，代码覆盖率报告，代码分割等等更多
+这个启动包的设计是为了让你使用一整套最新最酷的前端技术，所有都是可配置，富特性，基于webpack已经提供代码热加载，css模块with sass，单元测试，代码覆盖率报告，代码分割等等更多。
 
 这个项目最主要的目的是尽可能果断的保留。目的不是要你一定按照这个结构去完成你的项目，谐在使前端开发更健壮，更简单还有最重要的是更快乐。你可以获得以下的所有特性！
 
 最后，如果没有大家的贡献，这个项目是不可能如此健壮的，所以，谢谢大家。
 
-觉得不错的话 请Star一下本项目 这是对作者最大的支持
+觉得不错的话，请Star一下本项目，这是对作者最大的支持。
 
-所有相关库已准备好
-
-随时等待调用
+所有相关库已准备好，随时等待调用。
 
 ## 特性
 * [react](https://github.com/facebook/react)
@@ -31,7 +29,7 @@ React开发中最好用的手脚架
 
 ## 开始
 
-确认好你的环境配置，然后就可以开始以下步骤
+确认好你的环境配置，然后就可以开始以下步骤。
 
 ```bash
 $ git clone https://github.com/bodyno/react-starter-kit.git
@@ -114,7 +112,7 @@ Babel被配置[babel-plugin-transform-runtime](https://www.npmjs.com/package/bab
 
 ## 谢谢大家
 
-如果没有大家的贡献，这个项目是不可能诞生的， 感谢所有为这个项目做出贡献的人
+如果没有大家的贡献，这个项目是不可能诞生的， 感谢所有为这个项目做出贡献的人。
 
 This program is inspired by [davezuko](https://github.com/davezuko)
 
@@ -123,4 +121,4 @@ This program is inspired by [davezuko](https://github.com/davezuko)
 * [Spencer Dixin](https://github.com/SpencerCDixon) - For your creation of [redux-cli](https://github.com/SpencerCDixon/redux-cli).
 * [Jonas Matser](https://github.com/mtsr) - For your help in triaging issues and unending support in our Gitter channel.
 
-Thanks you guys all the time
+Thanks you guys all the time.

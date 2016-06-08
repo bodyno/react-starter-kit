@@ -1,5 +1,8 @@
-import PageNotFound from './components/PageNotFound'
-
 export default {
-  component: PageNotFound
+  getComponent(nextState, cb){
+    require.ensure([],(require)=>{
+      const PageNotFound = require('./components/PageNotFound').default
+      cb(null,PageNotFound)
+    },'PageNotFound')
+  }
 }

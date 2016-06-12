@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
 import NotFoundImage from '../assets/404.jpg'
 import classes from './PageNotFound.scss'
+import { withRouter } from 'react-router';
 
-export default class PageNotFound extends Component{
+class PageNotFound extends Component{
 
   back(){
-    console.log(this.props.router);
+    this.props.router.goBack()
   }
 
   render(){
@@ -21,3 +22,4 @@ export default class PageNotFound extends Component{
     )
   }
 }
+export default withRouter(PageNotFound)

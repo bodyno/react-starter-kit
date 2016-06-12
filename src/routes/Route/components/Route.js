@@ -1,22 +1,10 @@
 import React, {Component} from 'react'
-import { Link } from 'react-router';
+import { Link, withRouter } from 'react-router';
 
 class Route extends Component {
 
-  /*componentDidMount() {
-    this.props.router.setRouteLeaveHook(this.props.route, this.routerWillLeave)
-  }
-
-  routerWillLeave(nextLocation) {
-    return 'Your work is not saved! Are you sure you want to leave?'
-  }*/
-
   redirect () {
-    console.log(this.props);
-  }
-
-  componentWillReceiveProps (nextProps) {
-    console.log(nextProps.params.id)
+    this.props.router.push('/form')
   }
 
   render () {
@@ -25,7 +13,7 @@ class Route extends Component {
     return (
       <div>
         <h1>
-          Path: <Link to="/route/99">{location.pathname}</Link>
+          Path: <Link to="/form">{location.pathname}</Link>
         </h1>
         <div>
           <button onClick={this.redirect.bind(this)}>Go</button>
@@ -34,4 +22,4 @@ class Route extends Component {
     )
   }
 }
-export default Route
+export default withRouter(Route)

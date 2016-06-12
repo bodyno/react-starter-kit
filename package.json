@@ -73,9 +73,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/davezuko/react-redux-starter-kit.git"
+    "url": "git+https://github.com/bodyno/react-starter-kit.git"
   },
-  "author": "David Zukowski <david@zuko.me> (http://zuko.me)",
+  "author": "Nobody <az8321550@gmail.com> (https://bodyno.com)",
   "license": "MIT",
   "dependencies": {
     "babel-cli": "^6.5.1",

@@ -12,7 +12,7 @@ class Route extends Component {
   }*/
 
   redirect () {
-    this.props.router.push('/form')
+    console.log(this.props);
   }
 
   componentWillReceiveProps (nextProps) {

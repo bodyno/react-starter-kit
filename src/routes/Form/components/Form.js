@@ -10,7 +10,11 @@ class SimpleForm extends Component {
       resetForm,
       submitting
     } = this.props
-    return (<form onSubmit={handleSubmit}>
+    const onSubmit = data => {
+      alert(JSON.stringify(data, 0, 2))
+      return false
+    }
+    return (<form onSubmit={onSubmit}>
         <div>
           <label>First Name</label>
           <div>

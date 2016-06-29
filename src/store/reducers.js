@@ -5,8 +5,8 @@ import { reducer as formReducer } from 'redux-form'
 export const reducers = (asyncReducers) => {
   return combineReducers({
     // Add sync reducers here
-    form: formReducer,
     router,
+    form: formReducer,
     ...asyncReducers
   })
 }

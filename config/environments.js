@@ -28,7 +28,7 @@ export default {
     compiler_hash_type: 'chunkhash',
     compiler_devtool: null,
     compiler_stats: {
-      chunks: true,
+      chunks: false,
       chunkModules: true,
       colors: true
     }

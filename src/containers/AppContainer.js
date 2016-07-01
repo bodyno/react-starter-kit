@@ -12,11 +12,12 @@ class AppContainer extends React.Component {
 
   render () {
     const { history, routes, routerKey, store } = this.props
+    const pageChange = () => window.scrollTo(0, 0)
 
     return (
       <Provider store={store}>
         <div style={{ height: '100%' }}>
-          <Router history={history} children={routes} key={routerKey} onUpdate={() => window.scrollTo(0, 0)} />
+          <Router history={history} children={routes} key={routerKey} onUpdate={pageChange} />
         </div>
       </Provider>
     )

@@ -34,3 +34,7 @@ export default class Zen extends Component {
     )
   }
 }
+
+Zen.propTypes = {
+  zen: React.PropTypes.object.isRequired
+}

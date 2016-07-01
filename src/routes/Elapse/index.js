@@ -8,6 +8,6 @@ export default (store) => ({
       const reducer = require('./modules/elapse').default
       injectReducer(store, { key: 'elapse', reducer })
       cb(null, Elapse)
-    }, 'elapse')
+    })
   }
 })

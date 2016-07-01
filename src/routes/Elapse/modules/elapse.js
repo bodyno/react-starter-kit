@@ -1,7 +1,7 @@
 // ------------------------------------
 // Constants
 // ------------------------------------
-const PLUS = 'PLUS'
+export const PLUS = 'PLUS'
 
 // ------------------------------------
 // Actions
@@ -11,6 +11,10 @@ export function plus () {
   return {
     type: PLUS
   }
+}
+
+export const actions = {
+  plus
 }
 
 // ------------------------------------
@@ -26,7 +30,7 @@ const ACTION_HANDLERS = {
 // Reducer
 // ------------------------------------
 const initialState = 0
-export default function (state = initialState, action) {
+export default function elapseReducer (state = initialState, action) {
   const handler = ACTION_HANDLERS[action.type]
 
   return handler ? handler(state, action) : state

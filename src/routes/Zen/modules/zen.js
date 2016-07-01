@@ -49,6 +49,13 @@ export function fetchZen () {
   }
 }
 
+export const actions = {
+  requestZen,
+  receiveZen,
+  clearZen,
+  fetchZen
+}
+
 // ------------------------------------
 // Action Handlers
 // ------------------------------------

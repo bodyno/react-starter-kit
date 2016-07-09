@@ -16,21 +16,17 @@ function requestZen () {
 }
 
 let avaliableId = 0
-function receiveZen (value) {
-  return {
-    type: RECEIVE_ZEN,
-    payload: {
-      text: value,
-      id: avaliableId++
-    }
+export const receiveZen = (value) => ({
+  type: RECEIVE_ZEN,
+  payload: {
+    text: value,
+    id: avaliableId++
   }
-}
+})
 
-export function clearZen () {
-  return {
-    type: CLEAR_ZEN
-  }
-}
+export const clearZen = () => (
+  type: CLEAR_ZEN
+)
 
 export function fetchZen () {
   return (dispatch, getState) => {

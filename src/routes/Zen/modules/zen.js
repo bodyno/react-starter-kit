@@ -24,9 +24,9 @@ export const receiveZen = (value) => ({
   }
 })
 
-export const clearZen = () => (
+export const clearZen = () => ({
   type: CLEAR_ZEN
-)
+})
 
 export function fetchZen () {
   return (dispatch, getState) => {

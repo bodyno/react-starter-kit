@@ -1,6 +1,6 @@
 {
   "name": "react-starter-kit",
-  "version": "1.0.1",
+  "version": "1.0.1-alpha.0",
   "description": "Get started with React, Redux, and React-Router!",
   "main": "index.js",
   "engines": {

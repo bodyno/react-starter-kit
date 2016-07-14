@@ -75,7 +75,7 @@
     "url": "git+https://github.com/bodyno/react-starter-kit.git"
   },
   "author": "Nobody <az8321550@gmail.com> (https://bodyno.com)",
-  "license": "MIT",
+  "license": "WTFPL",
   "dependencies": {
     "babel-cli": "^6.5.1",
     "babel-core": "^6.3.17",

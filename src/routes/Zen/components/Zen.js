@@ -15,20 +15,21 @@ export default class Zen extends Component {
   }
 
   render () {
-    const props = this.props
+    const { fetchZen, clearZen, zen } = this.props
+    const { fetching, text } = zen
 
     return (
       <div>
         <div>
-          <button className='btn btn-default' onClick={props.fetchZen}>
-            {props.zen.fetching ? 'Fetching...' : 'Fetch'}
+          <button className='btn btn-default' onClick={fetchZen}>
+            {fetching ? 'Fetching...' : 'Fetch'}
           </button>
           &nbsp;&nbsp;
-          <button className='btn btn-default' onClick={props.clearZen}>Clear</button>
+          <button className='btn btn-default' onClick={clearZen}>Clear</button>
         </div>
         {this.renderLoading()}
         <div>
-          {props.zen.text.map(child)}
+          {text.map(child)}
         </div>
       </div>
     )

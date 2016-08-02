@@ -33,15 +33,9 @@ export function fetchZen () {
     if (getState().zen.fetching) return
 
     dispatch(requestZen())
-    return new Promise((resolve) => {
-      setTimeout(() => {
-        resolve()
-      }, 1000)
-    }).then(() => {
-      fetch('https://api.github.com/zen')
-        .then(data => data.text())
-        .then(text => dispatch(receiveZen(text)))
-    })
+    return fetch('https://api.github.com/zen')
+      .then(data => data.text())
+      .then(text => dispatch(receiveZen(text)))
   }
 }
 

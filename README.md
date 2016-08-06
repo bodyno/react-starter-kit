@@ -98,7 +98,7 @@ $ npm start                     # Compile and launch
 
 ## 样式
 
-所有的css和sass都支持[CSS Modules](https://github.com/css-modules/css-modules)。只在被引入，都会经过[PostCSS](https://github.com/postcss/postcss)压缩，加前缀。在生产环境下会提取到一个css文件下。
+所有的css和sass都支持[CSS Modules](https://github.com/css-modules/css-modules)。只要被引入，都会经过[PostCSS](https://github.com/postcss/postcss)压缩，加前缀。在生产环境下会提取到一个css文件下。
 
 ## 服务端
 

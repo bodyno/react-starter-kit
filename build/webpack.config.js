@@ -7,28 +7,32 @@ import _debug from 'debug'
 
 const debug = _debug('app:webpack:config')
 const paths = config.utils_paths
-const {__DEV__, __PROD__, __TEST__} = config.globals
+const {
+  __DEV__,
+  __PROD__,
+  __TEST__
+} = config.globals
 
 debug('Create configuration.')
 const webpackConfig = {
-  name: 'client',
-  target: 'web',
-  devtool: config.compiler_devtool,
-  resolve: {
-    root: paths.client(),
-    extensions: ['', '.js', '.jsx', '.json']
-  },
-  module: {}
-}
-// ------------------------------------
-// Entry Points
-// ------------------------------------
+    name: 'client',
+    target: 'web',
+    devtool: config.compiler_devtool,
+    resolve: {
+      root: paths.client(),
+      extensions: ['', '.js', '.jsx', '.json']
+    },
+    module: {}
+  }
+  // ------------------------------------
+  // Entry Points
+  // ------------------------------------
 const APP_ENTRY_PATH = paths.client('main.js')
 
 webpackConfig.entry = {
-  app: __DEV__
-    ? [APP_ENTRY_PATH, `webpack-hot-middleware/client?path=${config.compiler_public_path}__webpack_hmr`]
-    : [APP_ENTRY_PATH],
+  app: __DEV__ ?
+    [APP_ENTRY_PATH, `webpack-hot-middleware/client?path=${config.compiler_public_path}__webpack_hmr`] :
+    [APP_ENTRY_PATH],
   vendor: config.compiler_vendor
 }
 
@@ -132,8 +136,7 @@ webpackConfig.module.loaders = [{
       }
     }
   }
-},
-{
+}, {
   test: /\.json$/,
   loader: 'json'
 }]
@@ -190,6 +193,18 @@ if (isUsingCSSModules) {
       'postcss'
     ]
   })
+
+  webpackConfig.module.loaders.push({
+    test: /\.less$/,
+    include: cssModulesRegex,
+    loaders: [
+      'style',
+      cssModulesLoader,
+      'postcss',
+      'less?sourceMap'
+    ]
+  })
+
 }
 
 // Loaders for files that should not be treated as CSS modules.
@@ -214,10 +229,25 @@ webpackConfig.module.loaders.push({
   ]
 })
 
+webpackConfig.module.loaders.push({
+  test: /\.less$/,
+  exclude: excludeCSSModules,
+  loaders: [
+    'style',
+    BASE_CSS_LOADER,
+    'postcss',
+    'less?sourceMap'
+  ]
+})
+
 // ------------------------------------
 // Style Configuration
 // ------------------------------------
 webpackConfig.sassLoader = {
+  includePaths: paths.client('styles')
+}
+
+webpackConfig.lessLoader = {
   includePaths: paths.client('styles')
 }
 
@@ -241,16 +271,29 @@ webpackConfig.postcss = [
 
 // File loaders
 /* eslint-disable */
-webpackConfig.module.loaders.push(
-  { test: /\.woff(\?.*)?$/,  loader: 'url?prefix=fonts/&name=[path][name].[ext]&limit=10000&mimetype=application/font-woff' },
-  { test: /\.woff2(\?.*)?$/, loader: 'url?prefix=fonts/&name=[path][name].[ext]&limit=10000&mimetype=application/font-woff2' },
-  { test: /\.otf(\?.*)?$/,   loader: 'file?prefix=fonts/&name=[path][name].[ext]&limit=10000&mimetype=font/opentype' },
-  { test: /\.ttf(\?.*)?$/,   loader: 'url?prefix=fonts/&name=[path][name].[ext]&limit=10000&mimetype=application/octet-stream' },
-  { test: /\.eot(\?.*)?$/,   loader: 'file?prefix=fonts/&name=[path][name].[ext]' },
-  { test: /\.svg(\?.*)?$/,   loader: 'url?prefix=fonts/&name=[path][name].[ext]&limit=10000&mimetype=image/svg+xml' },
-  { test: /\.(png|jpg)$/,    loader: 'url?limit=8192' }
-)
-/* eslint-enable */
+webpackConfig.module.loaders.push({
+    test: /\.woff(\?.*)?$/,
+    loader: 'url?prefix=fonts/&name=[path][name].[ext]&limit=10000&mimetype=application/font-woff'
+  }, {
+    test: /\.woff2(\?.*)?$/,
+    loader: 'url?prefix=fonts/&name=[path][name].[ext]&limit=10000&mimetype=application/font-woff2'
+  }, {
+    test: /\.otf(\?.*)?$/,
+    loader: 'file?prefix=fonts/&name=[path][name].[ext]&limit=10000&mimetype=font/opentype'
+  }, {
+    test: /\.ttf(\?.*)?$/,
+    loader: 'url?prefix=fonts/&name=[path][name].[ext]&limit=10000&mimetype=application/octet-stream'
+  }, {
+    test: /\.eot(\?.*)?$/,
+    loader: 'file?prefix=fonts/&name=[path][name].[ext]'
+  }, {
+    test: /\.svg(\?.*)?$/,
+    loader: 'url?prefix=fonts/&name=[path][name].[ext]&limit=10000&mimetype=image/svg+xml'
+  }, {
+    test: /\.(png|jpg)$/,
+    loader: 'url?limit=8192'
+  })
+  /* eslint-enable */
 
 // ------------------------------------
 // Finalize Configuration

@@ -1,9 +1,7 @@
 import React from 'react';
 import { Router, Route, IndexRoute, Link, IndexLink } from 'react-router';
 import { Menu, Breadcrumb, Icon, Row, Col } from 'antd';
-import Header from '../../components/Header';
 import classes from './CoreLayout.scss';
-import '../../styles/core.scss';
 import styles from './Layout.less';
 
 const SubMenu = Menu.SubMenu;

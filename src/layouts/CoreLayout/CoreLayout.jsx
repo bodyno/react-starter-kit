@@ -1,7 +1,6 @@
 import React from 'react';
 import { Router, Route, IndexRoute, Link, IndexLink } from 'react-router';
 import { Menu, Breadcrumb, Icon, Row, Col } from 'antd';
-import classes from './CoreLayout.scss';
 import styles from './Layout.less';
 
 const SubMenu = Menu.SubMenu;
@@ -15,9 +14,9 @@ export const CoreLayout = ({ children }) => (
       <div className={styles["ant-layout-wrapper"]}>
         <div className={styles["ant-layout-container"]}>
           <aside className={styles["ant-layout-sider"]}>
-            <Menu mode="inline" defaultSelectedKeys={['1']} defaultOpenKeys={['sub1']}>
-              <SubMenu key="sub1" title={<span><Icon type="user" />导航一</span>}>
-                <Menu.Item key="home"><IndexLink to='/' activeClassName={classes.activeRoute}>Home</IndexLink></Menu.Item>
+            <Menu mode="inline" defaultSelectedKeys={['1']} defaultOpenKeys={['example']}>
+              <SubMenu key="example" title={<span><Icon type="user" />example</span>}>
+                <Menu.Item key="home"><IndexLink to='/'>Home</IndexLink></Menu.Item>
                 <Menu.Item key="counter"><Link to="/counter">Counter</Link></Menu.Item>
                 <Menu.Item key="zen"><Link to="/zen">Zen</Link></Menu.Item>
                 <Menu.Item key="elapse"><Link to="/elapse">Elapse</Link></Menu.Item>
@@ -25,7 +24,9 @@ export const CoreLayout = ({ children }) => (
                 <Menu.Item key="route88"><Link to="/route/88">Route</Link></Menu.Item>
                 <Menu.Item key="test"><Link to="/test">test</Link></Menu.Item>
                 <Menu.Item key="notFound"><Link to="/notFound">404</Link></Menu.Item>
-
+              </SubMenu>
+              <SubMenu key="antdLearn" title={<span><Icon type="user" />antd</span>}>
+                <Menu.Item key="table"><Link to="/antd/table">Table</Link></Menu.Item>
               </SubMenu>
             </Menu>
           </aside>
@@ -36,7 +37,7 @@ export const CoreLayout = ({ children }) => (
           </div>
         </div>
         <div className={styles["ant-layout-footer"]}>
-        Ant Design 版权所有 © 2015 由蚂蚁金服体验技术部支持
+          xhyan--react+reactRedux+antd
         </div>
       </div>
     </div>

@@ -9,6 +9,8 @@ import RouteRoute from './example/Route'
 import PageNotFound from './example/PageNotFound'
 import Test from './example/Test'
 
+import Table from './antd/Table';
+
 /*  Note: Instead of using JSX, we recommend using react-router
     PlainRoute objects to build route definitions.   */
 
@@ -23,7 +25,8 @@ export const createRoutes = (store) => ([
       ElapseRoute(store),
       FormRoute(store),
       RouteRoute(store),
-      Test(store)
+      Test(store),
+      Table(store)
     ]
   },
   {

@@ -15,7 +15,7 @@ export const CoreLayout = ({ children }) => (
         <div className={styles["ant-layout-container"]}>
           <aside className={styles["ant-layout-sider"]}>
             <Menu mode="inline" defaultSelectedKeys={['1']} defaultOpenKeys={['example']}>
-              <SubMenu key="example" title={<span><Icon type="user" />example</span>}>
+              <SubMenu key="example" title={<span><Icon type="appstore" />example</span>}>
                 <Menu.Item key="home"><IndexLink to='/'>Home</IndexLink></Menu.Item>
                 <Menu.Item key="counter"><Link to="/counter">Counter</Link></Menu.Item>
                 <Menu.Item key="zen"><Link to="/zen">Zen</Link></Menu.Item>
@@ -25,7 +25,7 @@ export const CoreLayout = ({ children }) => (
                 <Menu.Item key="test"><Link to="/test">test</Link></Menu.Item>
                 <Menu.Item key="notFound"><Link to="/notFound">404</Link></Menu.Item>
               </SubMenu>
-              <SubMenu key="antdLearn" title={<span><Icon type="user" />antd</span>}>
+              <SubMenu key="antdLearn" title={<span><Icon type="laptop" />antd</span>}>
                 <Menu.Item key="table"><Link to="/antd/table">Table</Link></Menu.Item>
               </SubMenu>
             </Menu>

@@ -36,10 +36,10 @@ export default class AntTable extends Component {
         data: [],
         pagination: {},
         loading: false
-      }
+      };
   }
 
-  handleTableChange(pagination, filters, sorter) {
+  handleTableChange = (pagination, filters, sorter) => {
     const pager = this.state.pagination;
     pager.current = pagination.current;
     this.setState({pagination: pager});
@@ -52,7 +52,7 @@ export default class AntTable extends Component {
     });
   }
 
-  fetch(params = {}) {
+  fetch = (params = {}) => {
     console.log('请求参数：', params);
     this.setState({loading: true});
     reqwest({

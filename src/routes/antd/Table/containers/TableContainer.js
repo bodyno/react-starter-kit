@@ -1,13 +1,14 @@
 import { connect } from 'react-redux';
-import {fetchTable} from '../modules/table';
+import {fetch, onChange} from '../modules/table';
 import AntTable from '../components/Table';
 
 const mapActionCreators = {
-  fetchTable
+  fetch,
+  onChange
 }
 
-const mapStateToProps = {
+const mapStateToProps = (state)=> ({
   table: state.table
-}
+})
 
 export default connect(mapStateToProps, mapActionCreators)(AntTable);

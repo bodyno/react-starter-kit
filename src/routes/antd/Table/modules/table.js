@@ -1,31 +1,110 @@
+import reqwest from 'reqwest';
 // ------------------------------------
 // Constants
 // ------------------------------------
-const GET_DATA = 'GET_DATA';
-
-
+const REQUEST = 'REQUEST';
+const RECEIVE = 'RECEIVE';
+const COMPLETE = 'COMPLETE';
+const CHANGE = 'CHANGE';
 // ------------------------------------
 // Actions
 // ------------------------------------
-function getData(){
+function request() {
   return {
-    type: GET_DATA
+    type: REQUEST
   }
 }
 
-export default function fetchTable(){
+function receive(data, getState, pagination) {
+  const pager = getState().table.pagination;
+  pager.total = 200;
+  return {
+    type: RECEIVE,
+    data: data.results,
+    page: pager
+  }
+}
+
+
+function complete() {
+  return {
+    type: COMPLETE
+  }
+}
+
+function change(pagination) {
+  return {
+    type: CHANGE,
+    page: pagination
+  }
+}
+
+export function onChange(pagination, filters, sorter) {
   return (dispatch, getState) => {
-
+    const pager = getState().table.pagination;
+    pager.current = pagination.current;
+    dispatch(change(pager));
+    dispatch(fetch({
+      results: pagination.pageSize,
+      page: pagination.current,
+      sortField: sorter.field,
+      sortOrder: sorter.order,
+      ...filters
+    }));
   }
 }
+
+export function fetch(params = {}) {
+  return (dispatch, getState) => {
+    if (getState().table.loading) {
+      return;
+    }
+
+    dispatch(request());
+
+    return (
+      reqwest({
+        url: 'http://api.randomuser.me',
+        method: 'get',
+        data: {
+          results: 10,
+          ...params
+        },
+        type: 'json'
+      }).then(data => {
+        dispatch(receive(data, getState));
+        dispatch(complete());
+      })
+    )
+  }
+}
+
 
 
 // ------------------------------------
 // Action Handlers
 // ------------------------------------
 const ACTION_HANDLERS = {
-  [GET_DATA]: (state) => {
-    return ({...state, fetching: true})
+  [REQUEST]: (state) => {
+    return ({...state,
+      loading: true
+    })
+  },
+  [RECEIVE]: (state, action) => {
+    return ({...state,
+      data: action.data,
+      pagination: action.page
+    })
+  },
+  [COMPLETE]: (state) => {
+    return ({...state,
+      loading: false
+    })
+  },
+  [CHANGE]: (state, action) => {
+    return ({...state,
+      pagination: action.page
+    })
   }
 }
 
@@ -33,10 +112,11 @@ const ACTION_HANDLERS = {
 // Reducer
 // ------------------------------------
 const initialState = {
-  fetching: false,
-  text: []
+  data: [],
+  pagination: {},
+  loading: false
 }
-export default function (state = initialState, action) {
+export default function(state = initialState, action) {
   const handler = ACTION_HANDLERS[action.type]
 
   return handler ? handler(state, action) : state

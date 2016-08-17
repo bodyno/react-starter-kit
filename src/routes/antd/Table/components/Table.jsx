@@ -32,52 +32,53 @@ export default class AntTable extends Component {
   // const Test = React.createClass({
   constructor(props){
       super(props);
-      this.state = {
-        data: [],
-        pagination: {},
-        loading: false
-      };
+      // this.state = {
+      //   data: [],
+      //   pagination: {},
+      //   loading: false
+      // };
   }
 
   handleTableChange = (pagination, filters, sorter) => {
-    const pager = this.state.pagination;
-    pager.current = pagination.current;
-    this.setState({pagination: pager});
-    this.fetch({
-      results: pagination.pageSize,
-      page: pagination.current,
-      sortField: sorter.field,
-      sortOrder: sorter.order,
-      ...filters
-    });
+    // const pager = this.state.pagination;
+    // pager.current = pagination.current;
+    // this.setState({pagination: pager});
+    // this.fetch({
+    //   results: pagination.pageSize,
+    //   page: pagination.current,
+    //   sortField: sorter.field,
+    //   sortOrder: sorter.order,
+    //   ...filters
+    // });
   }
 
-  fetch = (params = {}) => {
-    console.log('请求参数：', params);
-    this.setState({loading: true});
-    reqwest({
-      url: 'http://api.randomuser.me',
-      method: 'get',
-      data: {
-        results: 10,
-        ...params
-      },
-      type: 'json'
-    }).then(data => {
-      const pagination = this.state.pagination;
-      // Read total count from server
-      // pagination.total = data.totalCount;
-      pagination.total = 200;
-      this.setState({loading: false, data: data.results, pagination});
-    });
-  }
+  // fetch = (params = {}) => {
+  //   console.log('请求参数：', params);
+  //   this.setState({loading: true});
+  //   reqwest({
+  //     url: 'http://api.randomuser.me',
+  //     method: 'get',
+  //     data: {
+  //       results: 10,
+  //       ...params
+  //     },
+  //     type: 'json'
+  //   }).then(data => {
+  //     const pagination = this.state.pagination;
+  //     // Read total count from server
+  //     // pagination.total = data.totalCount;
+  //     pagination.total = 200;
+  //     this.setState({loading: false, data: data.results, pagination});
+  //   });
+  // }
 
   componentDidMount() {
-    this.fetch();
+    this.props.fetch();
   }
 
   render() {
-    return (<Table columns={columns} rowKey={record => record.registered} dataSource={this.state.data} pagination={this.state.pagination} loading={this.state.loading} onChange={this.handleTableChange}/>);
+    const props = this.props;
+    return (<Table columns={columns} rowKey={record => record.registered} dataSource={props.table.data} pagination={props.table.pagination} loading={props.table.loading} onChange={props.onChange}/>);
   }
   // });
 }

@@ -23,7 +23,6 @@ describe('(Store) createStore', () => {
         type    : 'LOCATION_CHANGE',
         payload : location
       })
-      const locationState = store.getState().location
       expect(store.getState().location).to.deep.equal(location)
     })
   })

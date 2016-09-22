@@ -55,7 +55,6 @@ describe('(Internal Module) Location', () => {
   describe('(Specialized Action Creator) updateLocation', () => {
     let _globalState
     let _dispatchSpy
-    let _getStateSpy
 
     beforeEach(() => {
       _globalState = {
@@ -66,9 +65,6 @@ describe('(Internal Module) Location', () => {
           ..._globalState,
           location : locationReducer(_globalState.location, action)
         }
-      })
-      _getStateSpy = sinon.spy(() => {
-        return _globalState
       })
 
     })
@@ -82,7 +78,7 @@ describe('(Internal Module) Location', () => {
     })
 
     it('Should call dispatch exactly once.', () => {
-      const update = updateLocation({ dispatch: _dispatchSpy })('/')
+      updateLocation({ dispatch: _dispatchSpy })('/')
       expect(_dispatchSpy.should.have.been.calledOnce)
     })
   })

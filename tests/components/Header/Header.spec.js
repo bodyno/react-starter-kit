@@ -20,7 +20,7 @@ describe('(Component) Header', () => {
   describe('Navigation links...', () => {
     it('Should render a Link to Home route', () => {
       expect(_wrapper.contains(
-        <IndexLink activeClassName={classes.activeRoute} to='/'>
+        <IndexLink activeClassName='route--active' to='/'>
           Home
         </IndexLink>
       )).to.be.true
@@ -28,7 +28,7 @@ describe('(Component) Header', () => {
 
     it('Should render a Link to Counter route', () => {
       expect(_wrapper.contains(
-        <Link activeClassName={classes.activeRoute} to='/counter'>
+        <Link activeClassName='route--active' to='/counter'>
           Counter
         </Link>
       )).to.be.true

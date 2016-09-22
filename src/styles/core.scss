@@ -1,46 +1,44 @@
-:global {
-  @import 'base';
-  @import '~normalize.css/normalize';
+@import 'base';
+@import '~normalize.css/normalize';
 
-  // Some best-practice CSS that's useful for most apps
-  // Just remove them if they're not what you want
-  html {
-    box-sizing: border-box;
-  }
+// Some best-practice CSS that's useful for most apps
+// Just remove them if they're not what you want
+html {
+  box-sizing: border-box;
+}
 
-  html,
-  body {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-  }
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
 
-  body{
-    font-family: "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Hiragino Kaku Gothic Pro", Meiryo, "Malgun Gothic", sans-serif;
-    color: #333;
-    font-size: 14px;
-  }
+body{
+  font-family: "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Hiragino Kaku Gothic Pro", Meiryo, "Malgun Gothic", sans-serif;
+  color: #333;
+  font-size: 14px;
+}
 
-  *,
-  *:before,
-  *:after {
-    box-sizing: inherit;
-  }
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
 
-  a{
-    color:#07c;
-    text-decoration: none;
-    &:hover{
-      color:#3af;
-      text-decoration: underline;
-    }
+a{
+  color:#07c;
+  text-decoration: none;
+  &:hover{
+    color:#3af;
+    text-decoration: underline;
   }
+}
 
-  .container{
-    width:1000px;
-    margin:0 auto;
-  }
-  .text-center{
-    text-align: center;
-  }
+.container{
+  width:1000px;
+  margin:0 auto;
+}
+.text-center{
+  text-align: center;
 }

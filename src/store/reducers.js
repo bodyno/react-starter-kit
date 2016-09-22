@@ -1,15 +1,16 @@
 import { combineReducers } from 'redux'
+import locationReducer from './location'
 
-export const reducers = (asyncReducers) => {
+export const makeRootReducer = (asyncReducers) => {
   return combineReducers({
-    // Add sync reducers here
+    location: locationReducer,
     ...asyncReducers
   })
 }
 
 export const injectReducer = (store, { key, reducer }) => {
   store.asyncReducers[key] = reducer
-  store.replaceReducer(reducers(store.asyncReducers))
+  store.replaceReducer(makeRootReducer(store.asyncReducers))
 }
 
-export default reducers
+export default makeRootReducer

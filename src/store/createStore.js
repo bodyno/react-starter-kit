@@ -8,7 +8,7 @@ export default (initialState = {}, history) => {
   let middleware = applyMiddleware(thunk, routerMiddleware(history))
 
   // Use DevTools chrome extension in development
-  if (__DEBUG__) {
+  if (__DEV__) {
     const devToolsExtension = window.devToolsExtension
 
     if (typeof devToolsExtension === 'function') {

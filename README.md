@@ -2,7 +2,7 @@
 
 React开发中最好用的脚手架。
 
-这个启动包的设计是为了让你使用一整套最新最酷的前端技术，所有都是可配置，富特性，基于webpack已经提供代码热加载，css模块with sass，单元测试，代码覆盖率报告，代码分割等等更多。
+这个启动包的设计是为了让你使用一整套最新最酷的前端技术，所有都是可配置，富特性，基于webpack已经提供代码热加载，使用sass预处理css，单元测试，代码覆盖率报告，代码分割等等更多。
 
 这个项目最主要的目的是尽可能果断的保留。目的不是要你一定按照这个结构去完成你的项目，谐在使前端开发更健壮，更简单还有最重要的是更快乐。你可以获得以下的所有特性！
 
@@ -19,7 +19,7 @@ React开发中最好用的脚手架。
 * [react-router-redux](https://github.com/rackt/react-router-redux)
 * [webpack](https://github.com/webpack/webpack)
 * [babel](https://github.com/babel/babel)
-* [koa](https://github.com/koajs/koa)
+* [express](https://github.com/expressjs/express)
 * [karma](https://github.com/karma-runner/karma)
 * [eslint](http://eslint.org)
 
@@ -71,12 +71,12 @@ $ npm start                     # Compile and launch
 ├── build                    # 所有打包配置项
 │   └── webpack              # webpack的指定环境配置文件
 ├── config                   # 项目配置文件
-├── server                   # Koa 程序 (使用 webpack 中间件)
+├── server                   # Express 程序 (使用 webpack 中间件)
 │   └── main.js              # 服务端程序入口文件
 ├── src                      # 程序源文件
 │   ├── main.js              # 程序启动和渲染
-│   ├── components           # 可复用的直观组件(Presentational Components)
-│   ├── containers           # 可复用的容器组件
+│   ├── components           # 全局可复用的表现组件(Presentational Components)
+│   ├── containers           # 全局可复用的容器组件
 │   ├── layouts              # 主页结构
 │   ├── static               # 静态文件(不要到处imported源文件)
 │   ├── styles               # 程序样式
@@ -98,7 +98,7 @@ $ npm start                     # Compile and launch
 
 ## 样式
 
-所有的css和sass都支持[CSS Modules](https://github.com/css-modules/css-modules)。只要被引入，都会经过[PostCSS](https://github.com/postcss/postcss)压缩，加前缀。在生产环境下会提取到一个css文件下。
+所有的css和sass都支持会被预处理。只要被引入，都会经过[PostCSS](https://github.com/postcss/postcss)压缩，加前缀。在生产环境下会提取到一个css文件下。
 
 ## 服务端
 
@@ -109,6 +109,10 @@ $ npm start                     # Compile and launch
 Babel被配置[babel-plugin-transform-runtime](https://www.npmjs.com/package/babel-plugin-transform-runtime)可以让代码更优化。另外，在生产环境，我们使用[react-optimize](https://github.com/thejameskyle/babel-react-optimize)来优化React代码。
 
 在生产环境下，webpack会导出一个css文件并压缩Javascript，并把js模块优化到最好的性能。
+
+## 静态部署
+
+如果你正在使用nginx处理程序，确保所有的路由都直接指向 `~/dist/index.html` 文件，然后让react-router处理剩下的事。如果你不是很确定应该怎么做，[文档在这里](https://github.com/reactjs/react-router/blob/master/docs/guides/Histories.md#configuring-your-server)。Express在脚手架中用于扩展服务和代理API，或者其它你想要做的事，这完全取决于你。
 
 ## 谢谢大家
 

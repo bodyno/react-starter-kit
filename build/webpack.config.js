@@ -28,7 +28,7 @@ webpackConfig.entry = {
   app: __DEV__
     ? [APP_ENTRY].concat(`webpack-hot-middleware/client?path=${config.compiler_public_path}__webpack_hmr`)
     : [APP_ENTRY],
-  vendor: config.compiler_vendor
+  vendor: config.compiler_vendors
 }
 
 // ------------------------------------
@@ -95,18 +95,8 @@ webpackConfig.module.loaders = [{
   test: /\.(js|jsx)$/,
   exclude: /node_modules/,
   loader: 'babel',
-  query: {
-    cacheDirectory: true,
-    plugins: ['transform-runtime'],
-    presets: ['es2015', 'react', 'stage-0'],
-    env: {
-      production: {
-        presets: ['react-optimize']
-      }
-    }
-  }
-},
-{
+  query: config.compiler_babel
+}, {
   test: /\.json$/,
   loader: 'json'
 }]

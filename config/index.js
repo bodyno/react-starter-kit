@@ -46,11 +46,9 @@ const config = {
     colors : true
   },
   compiler_vendors : [
-    'history',
     'react',
     'react-redux',
     'react-router',
-    'react-router-redux',
     'redux'
   ],
 

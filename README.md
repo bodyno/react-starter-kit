@@ -24,7 +24,7 @@ React开发中最好用的脚手架。
 * [eslint](http://eslint.org)
 
 ## 需求配置
-* node `^4.2.0`
+* node `^4.5.0`
 * npm `^3.0.0`
 
 ## 开始

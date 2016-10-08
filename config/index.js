@@ -105,7 +105,6 @@ config.compiler_vendors = config.compiler_vendors
 // ------------------------------------
 // Utilities
 // ------------------------------------
-const resolve = path.resolve
 function base () {
   const args = [config.path_base].concat([].slice.call(arguments))
   return path.resolve.apply(path, args)

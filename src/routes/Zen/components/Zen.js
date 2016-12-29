@@ -1,22 +1,11 @@
 import React, {Component} from 'react'
-import classes from './Zen.scss'
-import Loader from 'halogen/ClipLoader'
-
-const child = (item) => (
-  <h1 key={item.id}>{item.text}</h1>
-)
+import './Zen.scss'
+import Spinner from 'react-spinkit'
 
 export default class Zen extends Component {
 
-  renderLoading () {
-    return (this.props.zen.fetching)
-      ? <div className={classes.loader}><Loader color='#26A65B' /></div>
-      : ''
-  }
-
   render () {
-    const { fetchZen, clearZen, zen } = this.props
-    const { fetching, text } = zen
+    const { fetchZen, clearZen, zen: {fetching, text} } = this.props
 
     return (
       <div>
@@ -27,9 +16,15 @@ export default class Zen extends Component {
           &nbsp;&nbsp;
           <button className='btn btn-default' onClick={clearZen}>Clear</button>
         </div>
-        {this.renderLoading()}
+        { fetching ?
+          <div className='loading'>
+            <Spinner spinnerName='double-bounce' />
+          </div> : ''
+        }
         <div>
-          {text.map(child)}
+          {text.map(item => (
+            <h1 key={item.id}>{item.text}</h1>
+          ))}
         </div>
       </div>
     )

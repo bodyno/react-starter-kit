@@ -1,16 +1,12 @@
 const express = require('express')
 const debug = require('debug')('app:server')
+const path = require('path')
 const webpack = require('webpack')
 const webpackConfig = require('../build/webpack.config')
 const config = require('../config')
 
 const app = express()
 const paths = config.utils_paths
-
-// This rewrites all routes requests to the root /index.html file
-// (ignoring file requests). If you want to implement universal
-// rendering, you'll want to remove this middleware.
-app.use(require('connect-history-api-fallback')())
 
 // ------------------------------------
 // Apply Webpack HMR Middleware
@@ -28,13 +24,27 @@ if (config.env === 'development') {
     lazy        : false,
     stats       : config.compiler_stats
   }))
-  app.use(require('webpack-hot-middleware')(compiler))
+  app.use(require('webpack-hot-middleware')(compiler, {
+    path: `${webpackConfig.output.publicPath}/__webpack_hmr`
+  }))
 
   // Serve static assets from ~/src/static since Webpack is unaware of
   // these files. This middleware doesn't need to be enabled outside
   // of development since this directory will be copied into ~/dist
   // when the application is compiled.
   app.use(express.static(paths.client('static')))
+
+  app.use('*', function (req, res, next) {
+    const filename = path.join(compiler.outputPath, 'index.html')
+    compiler.outputFileSystem.readFile(filename, (err, result) => {
+      if (err) {
+        return next(err)
+      }
+      res.set('content-type', 'text/html')
+      res.send(result)
+      res.end()
+    })
+  })
 } else {
   debug(
     'Server is being run outside of live development mode, meaning it will ' +

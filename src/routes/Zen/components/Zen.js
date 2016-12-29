@@ -9,6 +9,11 @@ export default class Zen extends Component {
 
     return (
       <div>
+        <div className='loading'>
+          { fetching ?
+            <Spinner spinnerName='double-bounce' /> : ''
+          }
+        </div>
         <div>
           <button className='btn btn-default' onClick={fetchZen}>
             {fetching ? 'Fetching...' : 'Fetch'}
@@ -16,11 +21,6 @@ export default class Zen extends Component {
           &nbsp;&nbsp;
           <button className='btn btn-default' onClick={clearZen}>Clear</button>
         </div>
-        { fetching ?
-          <div className='loading'>
-            <Spinner spinnerName='double-bounce' />
-          </div> : ''
-        }
         <div>
           {text.map(item => (
             <h1 key={item.id}>{item.text}</h1>

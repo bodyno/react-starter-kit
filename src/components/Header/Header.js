@@ -4,7 +4,8 @@ import './Header.scss'
 
 export const Header = () => (
   <div>
-    <h1>React Starter Kit ---- <a href='https://bodyno.com' target='_blank'>bodyno</a></h1>
+    <h1>React Starter Kit</h1>
+    <h2><a href='https://bodyno.com' target='_blank'>bodyno</a></h2>
     <IndexLink to='/' activeClassName='route--active'>
       Home
     </IndexLink>

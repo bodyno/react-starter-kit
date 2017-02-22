@@ -116,7 +116,7 @@ Babel被配置[babel-plugin-transform-runtime](https://www.npmjs.com/package/bab
 
 如果没有大家的贡献，这个项目是不可能诞生的， 感谢所有为这个项目做出贡献的人。
 
-This program is inspired by [davezuko](https://github.com/davezuko)
+This program is come from [davezuko](https://github.com/davezuko)
 
 * [Justin Greenberg](https://github.com/justingreenberg) - For all of your PR's, getting us to Babel 6, and constant work improving our patterns.
 * [Roman Pearah](https://github.com/neverfox) - For your bug reports, help in triaging issues, and PR contributions.

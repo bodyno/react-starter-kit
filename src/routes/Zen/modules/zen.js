@@ -18,24 +18,21 @@ function requestZen () {
 let avaliableId = 0
 export const receiveZen = (value) => ({
   type: RECEIVE_ZEN,
-  payload: {
-    text: value,
-    id: avaliableId++
-  }
+  payload: JSON.parse(value).data[0]
 })
 
 export const clearZen = () => ({
   type: CLEAR_ZEN
 })
 
-export function fetchZen () {
+export function fetchZen (pagenum = 1) {
   return (dispatch, getState) => {
     if (getState().zen.fetching) return
 
     dispatch(requestZen())
-    return fetch('https://api.github.com/zen')
+    return fetch('https://172.16.20.29/wifi/monitor/apstatusLists/accesstoken/SESSION-a4c25838f0d64f51917e22244f5e4cae/pagesize/100/page/' + pagenum)
       .then(data => data.text())
-      .then(text => dispatch(receiveZen(text)))
+      .then(page => dispatch(receiveZen(page)))
   }
 }
 
@@ -54,10 +51,10 @@ const ACTION_HANDLERS = {
     return ({...state, fetching: true})
   },
   [RECEIVE_ZEN]: (state, action) => {
-    return ({...state, fetching: false, text: state.text.concat(action.payload)})
+    return ({...state, fetching: false, page: action.payload})
   },
   [CLEAR_ZEN]: (state) => {
-    return ({...state, text: []})
+    return ({...state, page: {}})
   }
 }
 
@@ -66,7 +63,7 @@ const ACTION_HANDLERS = {
 // ------------------------------------
 const initialState = {
   fetching: false,
-  text: []
+  page: {data:[{lists:[],page:1,pagesize:10,totle:0}]}
 }
 export default function (state = initialState, action) {
   const handler = ACTION_HANDLERS[action.type]

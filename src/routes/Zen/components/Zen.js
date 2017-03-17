@@ -1,11 +1,49 @@
 import React, {Component} from 'react'
 import './Zen.scss'
 import Spinner from 'react-spinkit'
+import { Button,Table, Icon } from 'antd'
 
 export default class Zen extends Component {
 
   render () {
-    const { fetchZen, clearZen, zen: {fetching, text} } = this.props
+    const changePage = (page) => {
+      fetchZen(page);
+    };
+
+    const columns = [{
+      title: 'Name',
+      dataIndex: 'name',
+      key: 'name',
+      render: text => <a href="#">{text}</a>,
+    }, {
+      title: 'Mac',
+      dataIndex: 'mac',
+      key: 'mac'
+    }, {
+      title: 'Status',
+      dataIndex: 'status',
+      key: 'status'
+    }, {
+      title: 'Hw_ver',
+      dataIndex: 'hw_ver',
+      key: 'hw_ver'
+    }, {
+      title: 'Action',
+      key: 'action',
+      render: (text, record) => (
+        <span>
+      <a href="#">Action 一 {record.name}</a>
+      <span className="ant-divider" />
+      <a href="#">Delete</a>
+      <span className="ant-divider" />
+      <a href="#" className="ant-dropdown-link">
+        More actions <Icon type="down" />
+      </a>
+    </span>
+      ),
+    }];
+
+    const { fetchZen, clearZen, zen: {fetching, page} } = this.props
 
     return (
       <div>
@@ -15,16 +53,14 @@ export default class Zen extends Component {
           }
         </div>
         <div>
-          <button className='btn btn-default' onClick={fetchZen}>
+          <Button type="primary" onClick={fetchZen}>
             {fetching ? 'Fetching...' : 'Fetch'}
-          </button>
+          </Button>
           &nbsp;&nbsp;
-          <button className='btn btn-default' onClick={clearZen}>Clear</button>
+          <Button type="danger" onClick={clearZen}>Clear</Button>
         </div>
         <div>
-          {text.map(item => (
-            <h1 key={item.id}>{item.text}</h1>
-          ))}
+          <Table rowKey="id" columns={columns} dataSource={page.lists} scroll={{ x: true, y: 300 }} pagination={{ pageSize: page.pagesize, current: page.page, total:page.total, onChange: changePage }}/>
         </div>
       </div>
     )

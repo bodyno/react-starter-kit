@@ -2,6 +2,8 @@
 
 React开发中最好用的脚手架。
 
+<img src="https://cloud.githubusercontent.com/assets/5443058/26529189/0d9225d4-43ee-11e7-8187-8b54abe4fbb7.png" />
+
 这个启动包的设计是为了让你使用一整套最新最酷的前端技术，所有都是可配置，富特性，基于webpack已经提供代码热加载，使用sass预处理css，单元测试，代码覆盖率报告，代码分割等等更多。
 
 这个项目最主要的目的是尽可能果断的保留。目的不是要你一定按照这个结构去完成你的项目，谐在使前端开发更健壮，更简单还有最重要的是更快乐。你可以获得以下的所有特性！
@@ -115,7 +117,7 @@ Babel被配置[babel-plugin-transform-runtime](https://www.npmjs.com/package/bab
 
 如果没有大家的贡献，这个项目是不可能诞生的， 感谢所有为这个项目做出贡献的人。
 
-This program is come from [davezuko](https://github.com/davezuko)
+This program is inspired by [davezuko](https://github.com/davezuko)
 
 * [Justin Greenberg](https://github.com/justingreenberg) - For all of your PR's, getting us to Babel 6, and constant work improving our patterns.
 * [Roman Pearah](https://github.com/neverfox) - For your bug reports, help in triaging issues, and PR contributions.

@@ -76,6 +76,7 @@
   "author": "Nobody <az8321550@gmail.com> (https://bodyno.com)",
   "license": "WTFPL",
   "dependencies": {
+    "antd": "^2.7.3",
     "babel-core": "^6.17.0",
     "babel-loader": "^6.2.5",
     "babel-plugin-transform-runtime": "^6.15.0",
@@ -113,6 +114,7 @@
   },
   "devDependencies": {
     "babel-eslint": "^7.1.0",
+    "babel-plugin-import": "^1.1.1",
     "babel-plugin-istanbul": "^3.0.0",
     "chai": "^3.4.1",
     "chai-as-promised": "^6.0.0",

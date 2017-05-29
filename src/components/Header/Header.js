@@ -1,35 +1,41 @@
-import React from 'react'
+import React,{Component} from 'react'
 import { IndexLink, Link } from 'react-router'
+import {Layout,Menu, Icon } from 'antd';
 import './Header.scss'
+const { Header } = Layout;
+class HeaderComp extends  Component{
+  render(){
+    return(
+      <Header className="header">
+        <div className="logo" />
+        <Menu
+          theme="dark"
+          mode="horizontal"
+          defaultSelectedKeys={['1']}
+          style={{ lineHeight: '64px' }}
+        >
 
-export const Header = () => (
-  <div>
-    <h1>React Starter Kit</h1>
-    <h2><a href='https://bodyno.com' target='_blank'>bodyno</a></h2>
-    <IndexLink to='/' activeClassName='route--active'>
-      Home
-    </IndexLink>
-    {' · '}
-    <Link to='/counter' activeClassName='route--active'>
-      Counter
-    </Link>
-    {' · '}
-    <Link to='/zen' activeClassName='route--active'>
-      Zen
-    </Link>
-    {' · '}
-    <Link to='/elapse' activeClassName='route--active'>
-      Elapse
-    </Link>
-    {' · '}
-    <Link to='/route/88' activeClassName='route--active'>
-      Route
-    </Link>
-    {' · '}
-    <Link to='/notFound' activeClassName='route--active'>
-      404
-    </Link>
-  </div>
-)
+          <Menu.Item key="1"><IndexLink to='/'>Home</IndexLink></Menu.Item>
 
-export default Header
+
+          <Menu.Item key="2"><Link to='/counter'>counter</Link></Menu.Item>
+
+          <Menu.Item key="3"><Link to='/zen'>zen</Link></Menu.Item>
+
+
+          <Menu.Item key="4"><Link to='/elapse'>elapse</Link></Menu.Item>
+
+
+          <Menu.Item key="5"><Link to='/route/88'>route</Link></Menu.Item>
+
+
+          <Menu.Item key="6"><Link to='/notFound'>404</Link></Menu.Item>
+
+        </Menu>
+      </Header>
+    )
+  }
+}
+
+
+export default HeaderComp

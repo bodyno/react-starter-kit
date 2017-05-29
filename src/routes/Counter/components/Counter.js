@@ -1,17 +1,24 @@
-import React from 'react'
+import React ,{Component}from 'react'
+import { Button } from 'antd'
 
-export const Counter = (props) => (
-  <div style={{ margin: '0 auto' }}>
-    <h2>Counter: {props.counter}</h2>
-    <button className='btn btn-default' onClick={props.increment}>
-      Increment
-    </button>
-    {' '}
-    <button className='btn btn-default' onClick={props.doubleAsync}>
-      Double (Async)
-    </button>
-  </div>
-)
+class Counter extends Component {
+  render(){
+    const {increment,doubleAsync,counter} = this.props;
+    return(
+      <div style={{ margin: '0 auto' }}>
+        <h2>Counter: {counter}</h2>
+        <Button type="primary" onClick={increment}>
+          Increment
+        </Button>
+        {' '}
+        <Button type="danger" onClick={doubleAsync}>
+          Double (Async)
+        </Button>
+      </div>
+    )
+  }
+}
+
 
 Counter.propTypes = {
   counter: React.PropTypes.number.isRequired,

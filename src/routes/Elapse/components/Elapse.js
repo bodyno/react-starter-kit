@@ -1,4 +1,5 @@
-import React, {Component} from 'react'
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 
 export default class Elapse extends Component {
 
@@ -21,6 +22,6 @@ export default class Elapse extends Component {
 }
 
 Elapse.propTypes = {
-  elapse: React.PropTypes.number.isRequired,
-  plus: React.PropTypes.func.isRequired
+  elapse: PropTypes.number.isRequired,
+  plus: PropTypes.func.isRequired
 }

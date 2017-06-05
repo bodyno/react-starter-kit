@@ -97,6 +97,7 @@
     "node-sass": "^4.0.0",
     "normalize.css": "^5.0.0",
     "postcss-loader": "^1.1.0",
+    "prop-types": "^15.5.10",
     "react": "^15.0.0",
     "react-dom": "^15.0.0",
     "react-redux": "^5.0.1",

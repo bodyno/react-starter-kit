@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import NotFoundImage from '../assets/404.jpg'
 import classes from './PageNotFound.scss'
 import { withRouter } from 'react-router'
@@ -19,7 +20,7 @@ class PageNotFound extends Component {
 }
 
 PageNotFound.propTypes = {
-  router: React.PropTypes.object.isRequired
+  router: PropTypes.object.isRequired
 }
 
 export default withRouter(PageNotFound)

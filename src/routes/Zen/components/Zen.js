@@ -1,11 +1,12 @@
-import React, {Component} from 'react'
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import './Zen.scss'
 import Spinner from 'react-spinkit'
 
 export default class Zen extends Component {
 
   render () {
-    const { fetchZen, clearZen, zen: {fetching, text} } = this.props
+    const { fetchZen, clearZen, zen: { fetching, text } } = this.props
 
     return (
       <div>
@@ -32,5 +33,5 @@ export default class Zen extends Component {
 }
 
 Zen.propTypes = {
-  zen: React.PropTypes.object.isRequired
+  zen: PropTypes.object.isRequired
 }

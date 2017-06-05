@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import { Link, withRouter } from 'react-router'
 
 class Route extends Component {
@@ -29,8 +30,8 @@ class Route extends Component {
 }
 
 Route.propTypes = {
-  location: React.PropTypes.object.isRequired,
-  router: React.PropTypes.object.isRequired
+  location: PropTypes.object.isRequired,
+  router: PropTypes.object.isRequired
 }
 
 export default withRouter(Route)

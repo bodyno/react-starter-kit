@@ -1,3 +1,11 @@
+# 废弃警告
+
+这个项目起始于Redux生态的开始，目的是提供一个手脚架让前端们快速上手和开始。之后，工具和最佳实践被不断的革新。为了获得最新的体验，我推荐你使用类似于[create-react-app](https://github.com/facebookincubator/create-react-app)这种可以支持React核心和Redux的脚手架。
+
+当然还是欢迎你继续使用这个项目如果你觉得这个项目更适合你。如果你是个追求新生态的人，我还是强烈推荐你使用其它更新更频繁的项目。
+
+谢谢大家在过去这些年为这个项目的贡献。Thanks everyone.
+
 # React Starter Kit
 
 React开发中最好用的脚手架。

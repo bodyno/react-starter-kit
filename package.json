@@ -110,7 +110,7 @@
     "style-loader": "^0.13.1",
     "url-loader": "^0.6.2",
     "webpack": "^3.8.1",
-    "yargs": "^6.3.0"
+    "yargs": "^10.0.3"
   },
   "devDependencies": {
     "babel-eslint": "^7.1.0",

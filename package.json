@@ -126,7 +126,7 @@
     "eslint-config-standard-react": "^5.0.0",
     "eslint-plugin-babel": "^4.0.0",
     "eslint-plugin-promise": "^3.0.0",
-    "eslint-plugin-react": "^6.0.0",
+    "eslint-plugin-react": "^7.5.1",
     "eslint-plugin-standard": "^2.0.0",
     "express": "^4.14.0",
     "karma": "^1.0.0",

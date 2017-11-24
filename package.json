@@ -122,7 +122,7 @@
     "codecov": "^3.0.0",
     "enzyme": "^3.2.0",
     "eslint": "^3.0.1",
-    "eslint-config-standard": "^6.0.0",
+    "eslint-config-standard": "^10.2.1",
     "eslint-config-standard-react": "^5.0.0",
     "eslint-plugin-babel": "^4.0.0",
     "eslint-plugin-promise": "^3.0.0",

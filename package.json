@@ -113,7 +113,7 @@
     "yargs": "^10.0.3"
   },
   "devDependencies": {
-    "babel-eslint": "^7.1.0",
+    "babel-eslint": "^8.0.2",
     "babel-plugin-istanbul": "^4.1.5",
     "chai": "^4.1.2",
     "chai-as-promised": "^6.0.0",
